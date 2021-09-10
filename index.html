@@ -29,7 +29,7 @@
 
       
       const notes = musicMath.Frequency(pitch).note
-      if (clarity>.7 && pitch>32){
+      if (clarity>.8 && pitch>32){
       document.getElementById("pitch").textContent = `${Math.round(pitch*10)/10}`;
       document.getElementById("notes").innerHTML = `${notes}`;
       document.getElementById("clarity").textContent = `${Math.round(clarity * 100)} %`;}
@@ -43,9 +43,7 @@
           flag=true;
           }
           console.log(bfr)
-      }
-
-      if (pitch>109 && pitch < 111){
+      } else if (pitch>109 && pitch < 111) {
           if (bfr==-1){
           bfr=0;
           } else if (bfr==1){
@@ -53,17 +51,24 @@
           }
           console.log(bfr)
           // arr.push('A');
-      }
+      } 
+        
+      
       if (bfr!=-1){
         arr.push(0)
       }
-      if (arr.length>60){
+      console.log(arr.length)
+      
+      if (arr.length>30){
         bfr=-1
+        arr = []
       }
+      
       if (flag==1){
           alert('Woohoo');
           bfr = -1;
           flag=false;
+          arr = []         
       }
       }
       
